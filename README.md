@@ -4,7 +4,7 @@ My first interaction with this tool, for now
 ![workflow](https://github.com/Cotximahou/devops/actions/workflows/main.yml/badge.svg)
 
 # DevOps
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Cotximahou/devops/main.yml?branch=main&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Cotximahou/devops/main.yml?branch=develop&style=flat-square)
 
 
 
