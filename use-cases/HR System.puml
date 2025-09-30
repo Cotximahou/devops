@@ -1,0 +1,49 @@
+@startuml
+actor HR as "HR Advisor"
+actor Manager as "Department Manager"
+
+rectangle Database
+
+rectangle "HR System" {
+    ' Salary report use cases
+    usecase UC1 as "Get salaries of all employees"
+    usecase UC2 as "Get salaries by department"
+    usecase UC3 as "Get salaries for my department"
+    usecase UC4 as "Get salaries by role"
+    usecase UCa as "Print salaries"
+
+    ' Employee management use cases
+    usecase UC5 as "Add new employee"
+    usecase UC6 as "View employee details"
+    usecase UC7 as "Update employee details"
+    usecase UC8 as "Delete employee details"
+
+    ' HR interactions
+    HR - UC1
+    HR - UC2
+    HR - UC4
+    HR - UC5
+    HR - UC6
+    HR - UC7
+    HR - UC8
+
+    ' Manager interactions
+    Manager - UC3
+
+    ' Include relationships for printing salaries
+    UC1 ..> UCa : include
+    UC2 ..> UCa : include
+    UC3 ..> UCa : include
+    UC4 ..> UCa : include
+
+    ' Database access
+    UC1 - Database
+    UC2 - Database
+    UC3 - Database
+    UC4 - Database
+    UC5 - Database
+    UC6 - Database
+    UC7 - Database
+    UC8 - Database
+}
+@enduml
