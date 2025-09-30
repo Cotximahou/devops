@@ -206,10 +206,32 @@ public class App
      */
     public void displaySalariesByRole(List<Employee> employees)
     {
+        if (employees == null || employees.isEmpty()) {
+            System.out.println("No employees found for this role.");
+            return;
+        }
+
         System.out.println("EmpNo\tFirst Name\tLast Name\tSalary");
+
+        int totalSalary = 0;
+        int minSalary = Integer.MAX_VALUE;
+        int maxSalary = Integer.MIN_VALUE;
+
         for (Employee e : employees)
         {
             System.out.printf("%d\t%s\t%s\t%d%n", e.emp_no, e.first_name, e.last_name, e.salary);
+            totalSalary += e.salary;
+            if (e.salary < minSalary) minSalary = e.salary;
+            if (e.salary > maxSalary) maxSalary = e.salary;
         }
+
+        double avgSalary = totalSalary / (double) employees.size();
+
+        System.out.println("\n--- Summary ---");
+        System.out.println("Total employees: " + employees.size());
+        System.out.println("Total salary: " + totalSalary);
+        System.out.println("Average salary: " + String.format("%.2f", avgSalary));
+        System.out.println("Minimum salary: " + minSalary);
+        System.out.println("Maximum salary: " + maxSalary);
     }
 }
